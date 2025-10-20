@@ -1,0 +1,22 @@
+<svg width="800" height="400" version="1.1" xmlns="http://www.w3.org/2000/svg" transform="translate(-150,-200)">
+	<ellipse stroke="grey" stroke-width="1" fill="none" cx="257.5" cy="277.5" rx="30" ry="30"/>
+	<text x="244.5" y="283.5" font-family="arial" font-size="20" fill="grey">BC</text>
+	<ellipse stroke="grey" stroke-width="1" fill="none" cx="373.5" cy="230.5" rx="30" ry="30"/>
+	<text x="355.5" y="236.5" font-family="arial" font-size="20" fill="grey">BFS</text>
+	<ellipse stroke="grey" stroke-width="1" fill="none" cx="373.5" cy="332.5" rx="30" ry="30"/>
+	<text x="346.5" y="338.5" font-family="arial" font-size="14" fill="grey">find max</text>
+	<ellipse stroke="grey" stroke-width="1" fill="none" cx="482.5" cy="277.5" rx="30" ry="30"/>
+	<text x="456" y="282.5" font-family="arial" font-size="14" fill="grey">find path</text>
+	<polygon stroke="grey" stroke-width="1" points="285.304,266.234 345.696,241.766"/>
+	<polygon fill="grey" stroke-width="1" points="345.696,241.766 336.403,240.136 340.159,249.404"/>
+	<polygon stroke="grey" stroke-width="1" points="284.607,290.353 346.393,319.647"/>
+	<polygon fill="grey" stroke-width="1" points="346.393,319.647 341.306,311.702 337.022,320.738"/>
+	<polygon stroke="grey" stroke-width="1" points="400.283,318.985 455.717,291.015"/>
+	<polygon fill="grey" stroke-width="1" points="455.717,291.015 446.322,290.155 450.827,299.082"/>
+	<polygon stroke="grey" stroke-width="1" points="401.048,242.379 454.952,265.621"/>
+	<polygon fill="grey" stroke-width="1" points="454.952,265.621 449.585,257.862 445.626,267.045"/>
+	<polygon stroke="grey" stroke-width="1" points="166.5,277.5 227.5,277.5"/>
+	<polygon fill="grey" stroke-width="1" points="227.5,277.5 219.5,272.5 219.5,282.5"/>
+	<polygon stroke="grey" stroke-width="1" points="512.5,277.5 564.5,277.5"/>
+	<polygon fill="grey" stroke-width="1" points="564.5,277.5 556.5,272.5 556.5,282.5"/>
+</svg>

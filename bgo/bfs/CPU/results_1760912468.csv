@@ -1,0 +1,4 @@
+bgo_path,case,graph,run,status,runtime_ns,energy_joules,G.SIZE_VERTS,G.SIZE_EDGES
+bgo/bfs/CPU/bfs_naive,0,test.mtx,We are doing 1 runs.,,,,4994,11110
+bgo/bfs/CPU/bfs_naive,0,test.mtx,Run1,,,,4994,11110
+bgo/bfs/CPU/bfs_naive,0,test.mtx,0,0,84442600,1760316,4994,11110

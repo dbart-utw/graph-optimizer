@@ -1,0 +1,18 @@
+{
+    "in_args": [
+        {
+            "id": "G",
+            "kind": "GRAPH"
+        }
+    ],
+    "out_args": [
+        {
+            "id": "components",
+            "kind": "VECTOR"
+        }
+    ],
+    "stats": [
+        "G.SIZE_VERTS",
+        "G.SIZE_EDGES"
+    ]
+}

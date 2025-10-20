@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "name": "query",
+        "dependencies": []
+    },
+    {
+        "id": 1,
+        "name": "data access",
+        "dependencies": []
+    },
+    {
+        "id": 2,
+        "name": "preprocessing",
+        "dependencies": [0, 1]
+    },
+    {
+        "id": 3,
+        "name": "GNN",
+        "dependencies": [2]
+    },
+    {
+        "id": 4,
+        "name": "GNN",
+        "dependencies": [2]
+    },
+    {
+        "id": 5,
+        "name": "GNN",
+        "dependencies": [2]
+    }
+]

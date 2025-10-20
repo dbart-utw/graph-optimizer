@@ -1,0 +1,19 @@
+{
+    "in_args": [
+        {
+            "id": "G",
+            "kind": "GRAPH"
+        }
+    ],
+    "out_args": [
+        {
+            "id": "G_out",
+            "kind": "GRAPH"
+        }
+    ],
+    "stats": [
+        "G.PATH",
+        "G.SIZE_VERTS",
+        "G.SIZE_EDGES"
+    ]
+}

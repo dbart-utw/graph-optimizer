@@ -1,0 +1,2 @@
+bgo_path,case,graph,run,status,runtime_ns,energy_joules,G.SIZE_VERTS,G.SIZE_EDGES
+bgo/bfs/CPU/bfs_gap,0,wiki_talk_ru.mtx,0,0,71816804,1240928,449042,875248

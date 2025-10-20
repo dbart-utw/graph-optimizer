@@ -1,0 +1,65 @@
+PYTHON          = python3
+
+CPP_COMPILER    = g++ -std=c++20 -g
+CPP_FLAGS       = -O3 -march=native -Wall -Wextra -fPIC -fopenmp
+CPP_INCLUDES    = -I$(HOME)/.local/include -I../../../../include -I../../../../include/gap -I/opt/cuda/include
+CPP_LIBS		= -llagraph -lgraphblas -lCPP_Joules -lcuda -lcudart -lm -Wl,-rpath,/usr/local/lib -L/usr/local/lib -L/opt/cuda/targets/x86_64-linux/lib
+# CPP_LIBS        = -llagraph -lgraphblas -lcuda -lcudart -lm -Wl,-rpath,/usr/local/cuda-11.2/lib64 -Wl,-rpath,$(HOME)/.local/lib64 -L$(HOME)/.local/lib64
+
+CUDA_COMPILER   = /opt/cuda/bin/nvcc
+
+HEADER  = $(notdir $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))).hpp
+SOURCES = $(filter-out bench.cpp, $(wildcard *.c *.cpp *.cu))
+OBJECTS = $(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(patsubst %.cc,%.o,$(patsubst %.cu,%.o,$(SOURCES)))))
+
+all: bench
+
+bench.cpp: $(HEADER)
+	$(PYTHON) ../../../../autobench/gen_bench_code.py $@ $^ '$(CPP_INCLUDES)' --template ../../../../autobench/misc/template_cuda.cpp
+
+%.o: %.cu
+	$(CUDA_COMPILER) $(CPP_INCLUDES) -c $^ -o $@
+
+%.o: %.cpp
+	$(CPP_COMPILER) $(CPP_FLAGS) $(CPP_INCLUDES) -c $^ -o $@
+
+bench: bench.cpp $(OBJECTS)
+	$(CPP_COMPILER) $(CPP_FLAGS) $(CPP_INCLUDES) $(CPP_LIBS) $^ -o $@
+
+clean:
+	rm -f bench bench.cpp *.o
+	
+print-path:
+	echo $$PATH
+
+.PHONY: all clean
+
+
+# PYTHON			=	python3
+
+# CPP_COMPILER	=	g++ -std=c++20
+# CPP_FLAGS       =	-O3 -march=native -Wall -Wextra -fPIC -fopenmp
+# CPP_INCLUDES    =	-I$(HOME)/local_install/usr/local/include/suitesparse -I../../../../include -I../../../../include/gap -I/usr/local/include/suitesparse -I/usr/include -I/usr/include/fmt
+# # CPP_LIBS        =	-llagraph -lgraphblas -lm -Wl,-rpath,$(HOME)/local_install/usr/local/lib64 -L$(HOME)/local_install/usr/local/lib64
+# CPP_LIBS		=	-llagraph -lgraphblas -lCPP_Joules -lm -Wl,-rpath,../../../../lib -L../../../../lib
+
+# HEADER  = $(notdir $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))).hpp
+# SOURCES = $(filter-out bench.cpp, $(wildcard *.c *.cpp))
+# OBJECTS = $(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(SOURCES)))
+
+
+# all: bench
+
+# bench.cpp: $(HEADER)
+# 	$(PYTHON) ../../../../autobench/gen_bench_code.py $@ $^ '$(CPP_INCLUDES)'
+
+# %.o: %.cpp
+# 	$(CPP_COMPILER) $(CPP_FLAGS) -c $(CPP_INCLUDES) $< -o $@
+
+# bench: bench.cpp $(OBJECTS)
+# 	$(CPP_COMPILER) $(CPP_FLAGS) $(CPP_INCLUDES) $(CPP_LIBS) $^ -o $@
+
+# clean:
+# 	rm -f bench bench.cpp *.o
+
+# .PHONY: all clean

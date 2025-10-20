@@ -1,0 +1,28 @@
+PLATFORM := $(shell uname -s)
+
+CXX	= UNKNOW_PLATFORM
+NVCC = nvcc -Xcompiler -fopenmp
+
+ifeq ($(PLATFORM),Linux)
+	CXX	= g++ -std=c++20 -fopenmp
+	OPTS	= -g -O0
+	#OPTS	= -Ofast -march=native -DNDEBUG
+	#OPTS	= -g -fsanitize=address
+	WFLAGS	= -Wall
+	DEFS	=
+	INCLUDE	= -I$(INCDIR)
+	LIB	= -llagraph -lgraphblas -lm -Wl,-rpath,$(LIBDIR) -L$(LIBDIR)
+endif
+
+ifeq ($(PLATFORM),Darwin)
+	CXX	= g++-9 -std=c++20 -fopenmp
+	OPTS	= -g
+	WFLAGS	= -Wall
+	DEFS	=
+	INCLUDE	= -I$(INCDIR)
+	LIB	= -llagraphOSX -lgraphblasOSX -lm -Wl,-rpath,$(LIBDIR) -L$(LIBDIR)
+endif
+
+CXXFLAGS	= $(OPTS) $(WFLAGS) $(DEFS) $(INCLUDE)
+CUFLAGS		= --compiler-options "$(OPTS) $(WFLAGS) $(DEFS) $(INCLUDE)"
+CULIB		= -llagraph -lgraphblas -lm -Xcompiler \"-Wl,-rpath,$(LIBDIR)\" -L$(LIBDIR)

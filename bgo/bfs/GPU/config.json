@@ -1,0 +1,27 @@
+{
+    "in_args": [
+        {
+            "id": "G",
+            "kind": "GRAPH"
+        },
+        {
+            "id": "source",
+            "kind": "VERTEX",
+            "value": "G.RAND_VERT"
+        }
+    ],
+    "out_args": [
+        {
+            "id": "level",
+            "kind": "VECTOR"
+        },
+        {
+            "id": "parent",
+            "kind": "VECTOR"
+        }
+    ],
+    "stats": [
+        "G.SIZE_VERTS",
+        "G.SIZE_EDGES"
+    ]
+}

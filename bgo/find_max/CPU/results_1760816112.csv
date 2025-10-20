@@ -1,0 +1,2 @@
+bgo_path,case,graph,run,status,runtime_ns,energy_joules,values.SIZE
+bgo/find_max/CPU/find_max_ca,0,maayan-vidal_largest_cc.mtx,0,0,43970400,820713,2525

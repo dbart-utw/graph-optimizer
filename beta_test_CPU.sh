@@ -1,0 +1,2 @@
+sudo docker build -t graph-optimizer-beta-testing .
+sudo docker run -p 7777:7777 -it --privileged --device /dev/cpu/0/msr --device /dev/cpu/1/msr -v /sys/class/powercap:/sys/class/powercap:ro graph-optimizer-beta-testing

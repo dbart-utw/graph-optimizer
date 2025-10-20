@@ -1,0 +1,140 @@
+{
+    "hosts": [
+        {
+            "id": 1,
+            "name": "host1",
+            "cpus": {
+                "id": 1,
+                "name": "intel xeon",
+                "clock_speed": 2.10,
+                "cores": 16,
+                "threads": 32,
+                "wattage": 250,
+                "amount": 2,
+                "benchmarks": {
+                    "T_int_add": 2.4,
+                    "T_int_sub": 2.3,
+                    "T_int_mul": 3.1,
+                    "T_int_div": 6.2,
+                    "T_float_add": 10,
+                    "T_float_sub": 11,
+                    "T_float_mul": 20,
+                    "T_float_div": 22,
+                    "T_float_gt": 0.8,
+                    "T_q_pop": 11.2,
+                    "T_q_push": 16.1,
+                    "T_q_front": 14.5,
+                    "T_L1_read": 1.26,
+                    "T_L1_write": 1.26,
+                    "L1_linesize": 64,
+                    "T_L2_read": 4.24,
+                    "T_L2_write": 4.24,
+                    "L2_linesize": 64,
+                    "T_L3_read": 20.9,
+                    "T_L3_write": 20.9,
+                    "L3_linesize": 64,
+                    "T_DRAM_read": 62.5,
+                    "T_DRAM_write": 62.5,
+                    "T_heap_insert_max": 52.7,
+                    "T_heap_extract_min": 123.3,
+                    "T_heap_decrease_key": 12.7,
+                    "T_push_back": 12
+                }
+            },
+            "gpus": [
+                {
+                    "id": 1,
+                    "name": "RTX 3080",
+                    "clock_speed": 2.10,
+                    "cores": 400,
+                    "warps": 32,
+                    "wattage": 100,
+                    "benchmarks": {
+                        "int_add": 10,
+                        "float_add": 15,
+                        "L1_read": 5,
+                        "L1_write": 10
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "TitanX",
+                    "benchmarks": {
+                        "int_add": 10,
+                        "float_add": 15,
+                        "L1_read": 5,
+                        "L1_write": 10
+                    }
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "host2",
+            "cpus": {
+                "id": 1,
+                "name": "intel xeon",
+                "clock_speed": 2.50,
+                "cores": 8,
+                "threads": 16,
+                "wattage": 160,
+                "amount": 2,
+                "benchmarks": {
+                    "T_int_add": 3.4,
+                    "T_int_sub": 2.3,
+                    "T_int_mul": 3.1,
+                    "T_int_div": 6.2,
+                    "T_float_add": 10,
+                    "T_float_sub": 11,
+                    "T_float_mul": 20,
+                    "T_float_div": 22,
+                    "T_float_gt": 1.2,
+                    "T_q_pop": 16.2,
+                    "T_q_push": 20.1,
+                    "T_q_front": 17.5,
+                    "T_L1_read": 2.26,
+                    "T_L1_write": 1.26,
+                    "L1_linesize": 64,
+                    "T_L2_read": 8.24,
+                    "T_L2_write": 4.24,
+                    "L2_linesize": 64,
+                    "T_L3_read": 30.9,
+                    "T_L3_write": 20.9,
+                    "L3_linesize": 64,
+                    "T_DRAM_read": 80.5,
+                    "T_DRAM_write": 62.5,
+                    "T_heap_insert_max": 62.7,
+                    "T_heap_extract_min": 153.3,
+                    "T_heap_decrease_key": 22.7,
+                    "T_push_back": 12
+                }
+            },
+            "gpus": [
+                {
+                    "id": 1,
+                    "name": "RTX 3080",
+                    "clock_speed": 2.10,
+                    "cores": 400,
+                    "warps": 32,
+                    "wattage": 100,
+                    "benchmarks": {
+                        "int_add": 10,
+                        "float_add": 15,
+                        "L1_read": 5,
+                        "L1_write": 10
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "TitanX",
+                    "benchmarks": {
+                        "int_add": 10,
+                        "float_add": 15,
+                        "L1_read": 5,
+                        "L1_write": 10
+                    }
+                }
+            ]
+        }
+    ]
+}

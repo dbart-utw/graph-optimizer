@@ -1,0 +1,9 @@
+{
+    "in_args": [
+        { "id": "G", "kind": "GRAPH" }
+    ],
+    "stats": [
+        "G.SIZE_VERTS",
+        "G.SIZE_EDGES"
+    ]
+}

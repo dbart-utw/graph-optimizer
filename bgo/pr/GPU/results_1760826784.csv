@@ -1,0 +1,2 @@
+bgo_path,case,graph,run,status,runtime_ns,total_energy,G.SIZE_VERTS,G.SIZE_EDGES
+bgo/pr/GPU/edgelist,0,maayan-vidal_largest_cc.mtx,0,0,924236484,26993823,2783,12445

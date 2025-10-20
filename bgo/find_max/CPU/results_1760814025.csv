@@ -1,0 +1,2 @@
+bgo_path,case,graph,run,status,runtime_ns,energy_joules,values.SIZE
+bgo/find_max/CPU/find_max_gb,0,chess_largest_cc.mtx,0,0,61502092,953564,3148

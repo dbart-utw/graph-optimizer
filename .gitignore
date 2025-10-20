@@ -1,0 +1,7 @@
+data/large
+data/single_cc
+data/random
+data/bfs_test
+*__pycache__*
+benchmarks/results
+benchmarks/gap_results

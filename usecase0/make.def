@@ -1,0 +1,25 @@
+PLATFORM := $(shell uname -s)
+
+CXX	= UNKNOW_PLATFORM
+
+ifeq ($(PLATFORM),Linux)
+	CXX	= g++ -std=c++20 -fopenmp
+	OPTS	= -g
+	#OPTS	= -Ofast -march=native -DNDEBUG
+	#OPTS	= -g -fsanitize=address
+	WFLAGS	= -Wall
+	DEFS	=
+	INCLUDE	= -I$(INCDIR)
+	LIB	= -llagraph -lgraphblas -lm -Wl,-rpath,$(LIBDIR) -L$(LIBDIR) -L /usr/local/cuda/lib -lcuda -lcudart
+endif
+
+ifeq ($(PLATFORM),Darwin)
+	CXX	= g++-9 -std=c++20 -fopenmp
+	OPTS	= -g
+	WFLAGS	= -Wall
+	DEFS	=
+	INCLUDE	= -I$(INCDIR)
+	LIB	= -llagraphOSX -lgraphblasOSX -lm -Wl,-rpath,$(LIBDIR) -L$(LIBDIR)
+endif
+
+CXXFLAGS	= $(OPTS) $(WFLAGS) $(DEFS) $(INCLUDE)

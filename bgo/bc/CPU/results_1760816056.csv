@@ -1,0 +1,2 @@
+bgo_path,case,graph,run,status,runtime_ns,energy_joules,G.SIZE_VERTS,G.SIZE_EDGES,sources.SIZE
+bgo/bc/CPU/bc_naive,0,maayan-vidal_largest_cc.mtx,0,0,15697962354,519687703,2783,12445,1625

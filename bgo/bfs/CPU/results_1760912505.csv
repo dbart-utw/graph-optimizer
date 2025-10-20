@@ -1,0 +1,2 @@
+bgo_path,case,graph,run,status,runtime_ns,energy_joules,G.SIZE_VERTS,G.SIZE_EDGES
+bgo/bfs/CPU/bfs_naive,0,chess_largest_cc.mtx,0,0,76974802,2268279,7115,111558

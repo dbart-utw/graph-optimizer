@@ -1,0 +1,5 @@
+bgo_path,case,run,status,runtime_ns,G.SIZE_VERTS,G.SIZE_EDGES,sources.SIZE
+bgo/bc/bc_brandes,0,0,0,2431506202,1000,49541,688
+bgo/bc/bc_brandes,0,1,0,1575148552,1000,49541,688
+bgo/bc/bc_brandes,0,2,0,1576181549,1000,49541,688
+bgo/bc/bc_brandes,0,3,0,1578090762,1000,49541,688

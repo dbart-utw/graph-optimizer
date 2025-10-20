@@ -1,0 +1,24 @@
+{
+    "in_args": [
+        {
+            "id": "values",
+            "kind": "VECTOR",
+            "value": "G.RAND_VERT_VECTOR"
+        },
+        {
+            "id": "parent",
+            "kind": "VALUE",
+            "value": "G.RAND_VERT"
+        },
+        {
+            "id": "values",
+            "kind": "VALUE",
+            "value": "G.RAND_VERT"
+        }
+    ],
+    "out_args": [
+    ],
+    "stats": [
+        "values.SIZE"
+    ]
+}

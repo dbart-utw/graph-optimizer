@@ -1,0 +1,2 @@
+libclang==16
+Jinja2==3

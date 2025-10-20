@@ -1,0 +1,24 @@
+{
+    "in_args": [
+        {
+            "id": "G",
+            "kind": "GRAPH"
+        },
+        {
+            "id": "sources",
+            "kind": "VECTOR",
+            "value": "G.RAND_VERT_VECTOR"
+        }
+    ],
+    "out_args": [
+        {
+            "id": "centrality",
+            "kind": "VECTOR"
+        }
+    ],
+    "stats": [
+        "G.SIZE_VERTS",
+        "G.SIZE_EDGES",
+        "sources.SIZE"
+    ]
+}

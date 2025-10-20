@@ -1,0 +1,4 @@
+bgo_path,case,graph,run,status,runtime_ns,energy_joules,G.SIZE_VERTS,G.SIZE_EDGES
+bgo/bfs/CPU/bfs_gap,0,wiki_talk_ru.mtx,Graph has 449042 nodes, and we are doing 1 runs.,,,449042,875248
+bgo/bfs/CPU/bfs_gap,0,wiki_talk_ru.mtx,Run,,,,449042,875248
+bgo/bfs/CPU/bfs_gap,0,wiki_talk_ru.mtx,0,0,44650399,290284,449042,875248

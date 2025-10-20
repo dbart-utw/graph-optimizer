@@ -1,0 +1,2 @@
+bgo_path,case,graph,run,status,runtime_ns,energy_joules,G.SIZE_VERTS,G.SIZE_EDGES
+bgo/pr/CPU/pr_sequential,0,chess_largest_cc.mtx,0,0,2747179190,97605723,7115,111558

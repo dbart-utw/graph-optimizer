@@ -1,0 +1,2 @@
+bgo_path,case,graph,run,status,runtime_ns,,values.SIZE
+bgo/find_max/GPU/find_max_gpu,0,maayan-vidal_largest_cc.mtx,0,0,1051383029,['28875476'],1915

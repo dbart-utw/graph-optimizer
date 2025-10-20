@@ -1,0 +1,1 @@
+g++ -o main main.cpp pr_sequential.cpp pr_gb.cpp -I../../../include -I../../../../local_install/usr/local/include/suitesparse -L../../../../local_install/usr/local/lib64 -lm -Wl,-rpath,../../../../local_install/usr/local/lib64 -llagraph -lgraphblas

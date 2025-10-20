@@ -1,0 +1,28 @@
+{
+    "in_args": [
+        {
+            "id": "G",
+            "kind": "GRAPH"
+        },
+        {
+            "id": "source",
+            "kind": "VERTEX",
+            "value": "G.RAND_VERT"
+        },
+        {
+            "id": "delta",
+            "kind": "VERTEX",
+            "value": "CONST.1"
+        }
+    ],
+    "out_args": [
+        {
+            "id": "distances",
+            "kind": "VECTOR"
+        }
+    ],
+    "stats": [
+        "G.SIZE_VERTS",
+        "G.SIZE_EDGES"
+    ]
+}
