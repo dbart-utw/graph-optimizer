@@ -225,7 +225,7 @@ def plot_annotated_dag(data,title,target="runtime",max_cols=10,bar_width=0.6,com
 
 
 def sampling_prediction_validation(sampled_graph_benchmarks, full_graph_benchmarks, sampling_rate, target):
-    dampening_factor = 0.5
+    dampening_factor = 0.7
     for i, bgo in enumerate(sampled_graph_benchmarks):
         for j, host in enumerate(bgo["performances"]):
             for impl, val in host[target]["CPU"].items():
