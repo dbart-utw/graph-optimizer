@@ -1,5 +1,3 @@
-from bc import performance_model
-
 def predict(hardware):
     performance = performance_model.predict(hardware)
     wattage = hardware['cpus']['wattage']

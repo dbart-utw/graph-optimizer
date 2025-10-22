@@ -5,6 +5,7 @@ int find_path(CArray<int> parent, int start, int end) {
 
     int current = start;
     while (current != end) {
+        // printf("start %d, end %d, current %d", start, end, current);
         path.push_back(current);
         current = parent.data[current];
     }

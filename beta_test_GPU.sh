@@ -1,2 +1,2 @@
-sudo docker build -t graph-optimizer-beta-testing .
+sudo docker build --build-arg USE_GPU=true --build-arg BASE_IMAGE=nvidia/cuda:12.2.0-devel-ubuntu22.04 -t graph-optimizer-beta-testing .
 sudo docker run -p 7777:7777 -it --gpus all --privileged --device /dev/cpu/0/msr --device /dev/cpu/1/msr -v /sys/class/powercap:/sys/class/powercap:ro graph-optimizer-beta-testing

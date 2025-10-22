@@ -7,12 +7,12 @@
         },
         {
             "id": "parent",
-            "kind": "VALUE",
+            "kind": "VERTEX",
             "value": "G.RAND_VERT"
         },
         {
             "id": "values",
-            "kind": "VALUE",
+            "kind": "VERTEX",
             "value": "G.RAND_VERT"
         }
     ],

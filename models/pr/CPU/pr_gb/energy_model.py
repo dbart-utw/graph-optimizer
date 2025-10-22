@@ -1,5 +1,5 @@
-from . import performance_model
-from models.utils import ERROR_404
+#!/usr/bin/env python3
+import models.utils as utils
 
 def predict(hardware):
-    return ERROR_404
+    return utils.ERROR_404
