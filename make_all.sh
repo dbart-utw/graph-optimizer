@@ -61,15 +61,25 @@ for bgo in "${BGOS[@]}"; do
         continue
     fi
 
-    if [ -d "$bgo_dir/CPU" ]; then
-        echo ">>> $ACTION $bgo (CPU)..."
-        find "$bgo_dir/CPU" -type f -name Makefile -execdir $MAKE_CMD \;
-    fi
-
-    if [ "$INCLUDE_GPU" = true ] && [ -d "$bgo_dir/GPU" ]; then
-        echo ">>> $ACTION $bgo (GPU)..."
-        find "$bgo_dir/GPU" -type f -name Makefile -execdir $MAKE_CMD \;
-    fi
+	# --- CPU ---
+	if [ -d "$bgo_dir/CPU" ]; then
+	    echo ">>> $ACTION $bgo (CPU)..."
+	    for impl_dir in "$bgo_dir"/CPU/*/ ; do
+	        [[ -d "$impl_dir" ]] || continue
+	        echo "    -> $(basename "$impl_dir")"
+	        (cd "$impl_dir" && $MAKE_CMD)
+	    done
+	fi
+	
+	# --- GPU ---
+	if [ "$INCLUDE_GPU" = true ] && [ -d "$bgo_dir/GPU" ]; then
+	    echo ">>> $ACTION $bgo (GPU)..."
+	    for impl_dir in "$bgo_dir"/GPU/*/ ; do
+	        [[ -d "$impl_dir" ]] || continue
+	        echo "    -> $(basename "$impl_dir")"
+	        (cd "$impl_dir" && $MAKE_CMD)
+	    done
+	fi
 done
 
 # -------------------------------
