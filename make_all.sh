@@ -5,12 +5,13 @@ set -e
 # Configuration
 # -------------------------------
 
-# List of BGOs to build/clean
-BGOS=("bc" "cc" "tc" "pr" "bfs" "find_max" "find_path")
+# Default list of BGOs
+DEFAULT_BGOS=("bc" "cc" "tc" "pr" "bfs" "find_max" "find_path")
 
 # Default options
 INCLUDE_GPU=false
 CLEAN=false
+BGOS=()  # Start empty — may be set by args or default later
 
 # -------------------------------
 # Parse arguments
@@ -23,13 +24,21 @@ for arg in "$@"; do
         --clean)
             CLEAN=true
             ;;
-        *)
+        --*)
             echo "Unknown argument: $arg"
-            echo "Usage: $0 [--include-gpu] [--clean]"
+            echo "Usage: $0 [--include-gpu] [--clean] [BGO ...]"
             exit 1
+            ;;
+        *)
+            BGOS+=("$arg")
             ;;
     esac
 done
+
+# If no BGOs were specified, use the default list
+if [ ${#BGOS[@]} -eq 0 ]; then
+    BGOS=("${DEFAULT_BGOS[@]}")
+fi
 
 # -------------------------------
 # Action
