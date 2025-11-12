@@ -75,7 +75,7 @@ int main(int argc, char **argv) {
     LAGraph_Init(msg);
     EnergyTracker tracker;
 
-    if (argc < {{ argc + 1 }} || argc > {{ argc + 3 }}) {
+    if (argc < {{ argc + 1 }}) {
         std::cerr << "Invalid number of arguments!" << std::endl;
         return -1;
     }

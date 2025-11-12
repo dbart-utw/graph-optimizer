@@ -1,0 +1,4 @@
+bgo_path,case,graph,run,status,runtime_ns,energy_joules,G.SIZE_VERTS,G.SIZE_EDGES
+bgo/bfs/GPU/vertex_pull,0,RO_edges.mtx,Give read access to/sys/class/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj,,,,41773,125826
+bgo/bfs/GPU/vertex_pull,0,RO_edges.mtx,Give read access to/sys/class/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj,,,,41773,125826
+bgo/bfs/GPU/vertex_pull,0,RO_edges.mtx,0,0,301813523,2126,41773,125826

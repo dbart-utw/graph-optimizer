@@ -79,7 +79,7 @@ TRANSLATIONS = {
         'init': 'g = b.MakeGraphFromEL(el);',
         'name': 'g',
     },
-    'GPUPRGraph&': {
+    'CSR&': {
         'decl': 'Reader<int32_t> r = Reader<int32_t>(argv[1]); bool needs_weights = false; pvector<SGEdge> el = r.ReadFile(needs_weights); BuilderBase<int32_t> b = BuilderBase<int32_t>(); CSRGraph<int32_t> g;',
         'init': 'g = b.MakeGraphFromEL(el);',
         'name': 'g'
@@ -116,7 +116,6 @@ TRANSLATIONS = {
         'free': 'LAGraph_Delete(&arg_{i}, msg);',
         'name': '&arg_{i}',
     },
-
     'CArray<int>': {
         'decl': 'CArray<int> arg_{i};',
         'init': 'read_vector_CArray<int>(&arg_{i}, argv[{i}]);',
@@ -151,6 +150,12 @@ TRANSLATIONS = {
     'CArray<int>*': {
         'decl': 'CArray<int> arg_{i};',
         'save': 'write_vector_CArray(arg_{i}, argv[{i}]);',
+        'free': 'arg_{i}.free();',
+        'name': '&arg_{i}',
+    },
+    'CArray<int32_t>*': {
+        'decl': 'CArray<int32_t> arg_{i};',
+        'init': 'write_vector_CArray<int32_t>(arg_{i}, argv[{i}]);',
         'free': 'arg_{i}.free();',
         'name': '&arg_{i}',
     },

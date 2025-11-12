@@ -4,6 +4,6 @@
 #include "../pagerank.hpp"
 #include "datastructures.hpp"
 
-int pr_vertex_push(GPUPRGraph &g, CArray<float> *pr);
+int pr_vertex_push(CSR &g, CArray<float> *pr);
 
 #endif

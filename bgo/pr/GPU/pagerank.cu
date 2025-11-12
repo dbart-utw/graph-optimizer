@@ -56,62 +56,6 @@ inline void (*getStructEdgeListKernel(GPU_Implementation impl))(int32_t, EdgeStr
     }
 }
 
-template <typename T>
-inline int32_t *getNormalizedIndex(CSRGraph<T> &g, GPU_Implementation impl) {
-    int32_t *normalized_index = new int32_t[g.num_nodes() + 1];
-    int32_t **index;
-    switch (impl) {
-        case VERTEX_PUSH:
-            index = g.out_index();
-        case VERTEX_PULL:
-            index = g.in_index();
-        case VERTEX_PULL_NODIV:
-            index = g.in_index();
-        case VERTEX_PULL_WARP:
-            index = g.in_index();
-        case VERTEX_PULL_WARP_NODIV:
-            index = g.in_index();
-        case VERTEX_PUSH_WARP:
-            index = g.out_index();
-    }
-
-    for (int i = 0; i < g.num_nodes()+1; i++) {
-        normalized_index[i] = index[i] - index[0];
-    }
-
-    return normalized_index;
-}
-
-template <typename T>
-inline T *getNeighs(CSRGraph<T> &g, GPU_Implementation impl) {
-    switch (impl) {
-        case VERTEX_PUSH:
-            return g.out_neighs();
-        case VERTEX_PULL:
-            return g.in_neighs();
-        case VERTEX_PULL_NODIV:
-            return g.in_neighs();
-        case VERTEX_PULL_WARP:
-            return g.in_neighs();
-        case VERTEX_PULL_WARP_NODIV:
-            return g.in_neighs();
-        case VERTEX_PUSH_WARP:
-            return g.out_neighs();
-        default:
-            return nullptr; // Handle invalid cases
-    }
-}
-
-template <typename T>
-inline int32_t *getOutDegrees(CSRGraph<T> &g) {
-    int32_t *out_degrees = new int32_t[g.num_nodes()];
-    for (int i = 0; i < g.num_nodes(); i++) {
-        out_degrees[i] = (int32_t)g.out_degree(i);
-    }
-
-    return out_degrees;
-}
-
 static __device__ __forceinline__
 void updateDiff(float val)
 {
@@ -364,7 +308,7 @@ __global__ void vertexPushWarpPageRank(size_t warp_size, size_t chunk_size, int3
 }
 
 // Returns the kernel time in microseconds
-double PageRankGPU(GPUPRGraph &g, int max_iters, float *pagerank, GPU_Implementation impl) {
+double PageRankGPU(CSR &g, int max_iters, float *pagerank, GPU_Implementation impl) {
     const int32_t num_nodes = g.num_nodes();
     size_t warp_size = 16;
     size_t chunk_size = 64;

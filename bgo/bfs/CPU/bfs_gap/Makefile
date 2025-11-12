@@ -9,7 +9,7 @@ CPP_LIBS        = -lCPP_Joules -lgraphblas -llagraph -lm
 CPP_RPATH       = -Wl,-rpath,../../../../lib
 
 HEADER  = $(notdir $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))).hpp
-SOURCES = $(filter-out bench.cpp, $(wildcard *.c *.cpp))
+SOURCES = ../../../../include/utils.cpp $(filter-out bench.cpp, $(wildcard *.c *.cpp))
 OBJECTS = $(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(SOURCES)))
 
 all: bench

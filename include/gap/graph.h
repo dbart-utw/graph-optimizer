@@ -362,4 +362,6 @@ class CSRGraph {
   DestID_* in_neighbors_;
 };
 
+typedef CSRGraph<int32_t> CSR;
+
 #endif  // GRAPH_H_

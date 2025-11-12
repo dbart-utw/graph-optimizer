@@ -163,7 +163,9 @@ pvector<int32_t> DOBFS(const BFSGraph &g, int32_t source, int alpha = 15, int be
 int bfs_gap(BFSGraph &G, int source, CArray<int> *level, CArray<int> *parent) {
 	pvector<int32_t> result = DOBFS(G, source);
 	parent->init(result.size());
-	for (unsigned int n=0; n < result.size(); n++)
+	for (unsigned int n=0; n < result.size(); n++) {
 		parent->data[n] = result[n];
+	}
+
 	return 0;
 }

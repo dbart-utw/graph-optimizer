@@ -3,8 +3,8 @@ import os
 
 from clang.cindex import Index
 # for docker container:
-from clang.cindex import Config
-Config.set_library_file("/usr/lib/llvm-15/lib/libclang.so.1")
+# from clang.cindex import Config
+# Config.set_library_file("/usr/lib/llvm-15/lib/libclang.so.1")
 
 from jinja2 import Environment, FileSystemLoader
 
