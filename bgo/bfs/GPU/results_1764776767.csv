@@ -1,0 +1,7 @@
+bgo_path,case,graph,run,status,runtime_ns,energy_joules,G.SIZE_VERTS,G.SIZE_EDGES
+bgo/bfs/GPU/vertex_pull,0,test_matrix_1000.mtx,Give read access to/sys/class/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj,,,,1000,49541
+bgo/bfs/GPU/vertex_pull,0,test_matrix_1000.mtx,Frontier size on depth 1: 91. Took 1.371621 milliseconds,,,,1000,49541
+bgo/bfs/GPU/vertex_pull,0,test_matrix_1000.mtx,Frontier size on depth 2: 908. Took 0.042459 milliseconds,,,,1000,49541
+bgo/bfs/GPU/vertex_pull,0,test_matrix_1000.mtx,Frontier size on depth 3: 0. Took 0.013575 milliseconds,,,,1000,49541
+bgo/bfs/GPU/vertex_pull,0,test_matrix_1000.mtx,Give read access to/sys/class/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj,,,,1000,49541
+bgo/bfs/GPU/vertex_pull,0,test_matrix_1000.mtx,0,0,367236618,2842,1000,49541

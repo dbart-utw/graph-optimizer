@@ -114,18 +114,17 @@ template __global__ void structEdgeListBfs<Reduction<blockreduce>>(int32_t, Edge
 
 
 template<typename BFSVariant>
-__global__ void
-vertexPullBfs(size_t, size_t, int32_t size, int32_t *in_index, int32_t *in_neighs, int32_t *levels, int32_t depth)
-{
+__global__ void vertexPullBfs(size_t, size_t, int32_t size, int32_t *in_index, int32_t *in_neighs, int32_t *levels, int32_t depth) {
     uint64_t startIdx = blockIdx.x * blockDim.x + threadIdx.x;
-    int newDepth = depth + 1;
+    unsigned offset = blockDim.x * gridDim.x;
+    unsigned newDepth = depth + 1;
     BFSVariant bfs;
 
-    for (uint64_t idx = startIdx; idx < size; idx += blockDim.x * gridDim.x)
+    for (uint64_t idx = startIdx; idx < size; idx += offset)
     {
         if (levels[idx] > newDepth) {
-            unsigned start = in_index[idx];
-            unsigned end = in_index[idx + 1];
+            int32_t start = in_index[idx];
+            int32_t end = in_index[idx + 1];
 
             for (unsigned i = start; i < end; i++) {
                 if (levels[in_neighs[i]] == depth) {
@@ -214,8 +213,9 @@ template __global__ void vertexPullWarpBfs<Reduction<blockreduce>>(size_t, size_
 template<typename BFSVariant>
 __global__ void vertexPushBfs(size_t, size_t, int32_t size, int32_t *out_index, int32_t *out_neighs, int32_t *levels, int32_t depth) {
     uint64_t startIdx = blockIdx.x * blockDim.x + threadIdx.x;
-    BFSVariant bfs;
     unsigned newDepth = depth + 1;
+    BFSVariant bfs;
+
     for (uint64_t idx = startIdx; idx < size; idx += blockDim.x * gridDim.x)
     {
         if (levels[idx] == depth) {
@@ -373,17 +373,24 @@ double BFSGPU(CSR &g, int32_t *levels, GPU_Implementation impl) {
 
     int depth = 0;
     unsigned frontier_size = 1;
-    t.Start();
+	double total_millisecond = 0;
+	double iteration_time = 0;
     do {
+    	t.Start();
         resetFrontier();
+		printf("Frontier size on depth %d: %d. ", depth, frontier_size);
         kernel<<<num_blocks, threads_per_block, shared_mem_size>>>(warp_size, chunk_size, num_nodes, d_index, d_neighs, d_levels, depth++);
         cudaError_t err = cudaGetLastError();
         if (err != cudaSuccess) {
             printf("CUDA Error: %s, with %d nodes and %d edges, and %d shared memory size\n", cudaGetErrorString(err), num_nodes, num_edges, shared_mem_size);
         }
         frontier_size = getFrontier();
+    	t.Stop();
+
+		iteration_time = t.Millisecs();
+		printf("Took %f milliseconds\n", iteration_time);
+		total_millisecond += iteration_time;
     } while (frontier_size > 0);
-    t.Stop();
 
     // Copy result back to host
     cudaMemcpy(levels, d_levels, num_nodes * sizeof(int32_t), cudaMemcpyDeviceToHost);

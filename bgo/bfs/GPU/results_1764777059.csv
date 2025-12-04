@@ -1,0 +1,11 @@
+bgo_path,case,graph,run,status,runtime_ns,energy_joules,G.SIZE_VERTS,G.SIZE_EDGES
+bgo/bfs/GPU/vertex_pull,0,wiki_talk_ru.mtx,Give read access to/sys/class/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj,,,,449042,848988
+bgo/bfs/GPU/vertex_pull,0,wiki_talk_ru.mtx,Frontier size on depth 1: 13. Took 31.695230 milliseconds,,,,449042,848988
+bgo/bfs/GPU/vertex_pull,0,wiki_talk_ru.mtx,Frontier size on depth 2: 15126. Took 30.856324 milliseconds,,,,449042,848988
+bgo/bfs/GPU/vertex_pull,0,wiki_talk_ru.mtx,Frontier size on depth 3: 240614. Took 0.132858 milliseconds,,,,449042,848988
+bgo/bfs/GPU/vertex_pull,0,wiki_talk_ru.mtx,Frontier size on depth 4: 193187. Took 0.089918 milliseconds,,,,449042,848988
+bgo/bfs/GPU/vertex_pull,0,wiki_talk_ru.mtx,Frontier size on depth 5: 97. Took 0.052498 milliseconds,,,,449042,848988
+bgo/bfs/GPU/vertex_pull,0,wiki_talk_ru.mtx,Frontier size on depth 6: 4. Took 0.044212 milliseconds,,,,449042,848988
+bgo/bfs/GPU/vertex_pull,0,wiki_talk_ru.mtx,Frontier size on depth 7: 0. Took 0.043582 milliseconds,,,,449042,848988
+bgo/bfs/GPU/vertex_pull,0,wiki_talk_ru.mtx,Give read access to/sys/class/powercap/intel-rapl/intel-rapl:0/intel-rapl:0:0/energy_uj,,,,449042,848988
+bgo/bfs/GPU/vertex_pull,0,wiki_talk_ru.mtx,0,0,376078164,4682,449042,848988
